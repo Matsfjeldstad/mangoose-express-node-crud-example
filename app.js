@@ -52,9 +52,6 @@ app.post('/createdevice', async (req, res) => {
 app.get('/', (req, res) => {
   res.send('Hello, I am working');
 });
-app.get('*', (req, res) => {
-  res.send('This is a broken gateway');
-});
 // read all devices
 app.get('/getalldevices', async (req, res) => {
   try {
@@ -87,6 +84,9 @@ app.delete('/device/:id', async (req, res) => {
   }
 });
 
+app.get('*', (req, res) => {
+  res.send('This is a broken gateway');
+});
 app.listen(PORT, () => {
   console.log(`> Ready on http://localhost:${PORT}`);
 });
